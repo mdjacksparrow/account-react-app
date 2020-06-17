@@ -10,9 +10,9 @@ const normalizePort = (port) => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT || 9000);
 
 const app = express();
-const dev = app.get('env') === 'development';
+const dev = app.get('env') === 'production';
 
-if (dev) {
+if (!dev) {
   console.log('in production');
 
   app.disable('x-powered-by');
